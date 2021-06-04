@@ -1,0 +1,38 @@
+locals {
+  home_region      = "OCI_HOME_REGION"
+  user_ocid        = "OCI_USER_ID"
+  fingerprint      = "OCI_API_KEY_FINGER_PRINT"
+  private_key_path = file("MS WINDOWS STILE: C:\\Users\\mike\\.oci\\oci_api_key.pem" OR LINUX/MAC "/home/bozo/.oci/oci_api_key")
+
+  tenancy_ocid                  = "OCI_TENANCY_ID"
+  target_compartment            = "MY_COMPARTMENT_TARGET"
+  ssh_public_key                = "MY_SSH_RSA_PUB_KEY"
+  instance_shape                = "VM.Standard.E3.Flex"
+  instance_standard_shape       = "VM.Standard2.1"
+  e3_shape_config_ocpus         = 1
+  e3_shape_config_memory_in_gbs = 16
+  pf_image_id                   = "OCI_VIRTUAL_APPLIANCE_FROM_MKTPLACE"
+
+  environments = [
+    "ash",
+    "vcp",
+    "gru",
+    "phx",
+    "scl",
+  ]
+  vcn_ash_cidr    = "172.20.0.0/16"
+  vcn_phx_cidr    = "172.21.0.0/16"
+  vcn_gru_cidr    = "172.22.0.0/16"
+  vcn_vcp_cidr    = "172.23.0.0/16"
+  vcn_scl_cidr    = "172.24.0.0/16"
+  wonka_cidr      = "10.255.254.0/23"
+  vpn_client_cidr = "10.255.253.0/24"
+  wonka_dmz_cidr  = "10.255.254.0/24"
+  cidr_map = {
+    ash = "172.20.0.0/16"
+    phx = "172.21.0.0/16"
+    gru = "172.22.0.0/16"
+    vcp = "172.23.0.0/16"
+    scl = "172.24.0.0/16"
+  }
+}
